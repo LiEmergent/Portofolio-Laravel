@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Nursalim</title>
+    <title>Portofolio | Nur Salim</title>
     
     <!-- Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.16/index.css" rel="stylesheet">
@@ -17,7 +17,7 @@
         <div class="nav-container">
             <a href="#" class="logo">Lim.</a>
             <ul class="nav-links">
-                <li><a href="#about">Tentang</a></li>
+                <li><a href="#about">Tentang Aku</a></li>
                 <li><a href="#education">Pendidikan</a></li>
                 <li><a href="#skills">Keahlian</a></li>
                 <li><a href="#experience">Pengalaman</a></li>
@@ -35,7 +35,7 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <button class="close-menu" id="closeMenu">✕</button>
-        <a href="#about" class="mobile-link">Tentang</a>
+        <a href="#about" class="mobile-link">Tentang Aku</a>
         <a href="#education" class="mobile-link">Pendidikan</a>
         <a href="#skills" class="mobile-link">Keahlian</a>
         <a href="#experience" class="mobile-link">Pengalaman</a>
@@ -74,14 +74,14 @@
     <section id="about" class="section-alt">
         <div class="container">
             <div class="section-header">
-                <p class="section-label">Kenali Saya Lebih Dekat</p>
-                <h2 class="section-title">Tentang Saya</h2>
+                <p class="section-label">Ayo Kenali Aku Lebih Dekat !</p>
+                <h2 class="section-title">Sekilas Tentang Aku</h2>
                 <div class="section-line"></div>
             </div>
             <div class="about-grid">
                 <div class="about-image fade-in">
                     <div class="about-image-wrapper">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDUwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSI0MDAiIHJ4PSIxNiIgZmlsbD0idXJsKCNhYmcxKSIvPjxyZWN0IHg9IjEwMCIgeT0iMTAwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgcng9IjEwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4xIi8+PGNpcmNsZSBjeD0iMjUwIiBjeT0iMTgwIiByPSI0MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMiIvPjxwYXRoIGQ9Ik0xNTAgMzAwIFEyNTAgMzUwIDM1MCAzMDAiIHN0cm9rZT0id2hpdGUiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIzIi8+PHJlY3QgeD0iMTIwIiB5PSIyMjAiIHdpZHRoPSIyNjAiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjE1Ii8+PHJlY3QgeD0iMTUwIiB5PSIyNDAiIHdpZHRoPSIyMDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjEiLz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImFiZzEiIHgxPSIwIiB5MT0iMCIgeDI9IjUwMCIgeTI9IjQwMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzYzNjZmMSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjOGI1Y2Y2Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDZiNmQ0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PC9zdmc+" alt="System Thinking">    
+                        <img src="{{ asset('img/Bintang.jpg') }}" alt="Bintang" class="profile-img">        
                     </div>
                     <div class="about-stats">
                         <div class="stat-card">
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="about-content fade-in">
-                    <h3>Membangun Masa Depan Berbasis AI dari Padang</h3>
+                    <h3>Membangun Masa Depan Berbasis AI dari Kota Padang</h3>
                     <p>Saya adalah mahasiswa Sistem Informasi yang berfokus pada pengembangan ekosistem berbasis AI dan automasi. Visi saya adalah membangun sistem cerdas yang merevolusi cara manusia bekerja, berpikir, dan hidup.</p>
                     <p>Tertarik pada integrasi AI, arsitektur perangkat lunak, dan desain sistem skala besar yang melampaui kerangka kerja tradisional.</p>
                     <div class="about-info">
