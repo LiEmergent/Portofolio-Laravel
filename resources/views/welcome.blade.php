@@ -23,6 +23,23 @@
                 <li><a href="#experience">Pengalaman</a></li>
                 <li><a href="#projects">Proyek</a></li>
                 <li><a href="#contact">Kontak</a></li>
+                @if (Route::has('login'))
+                    @auth
+                        <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                        <li><a href="{{ route('profile.edit') }}">Profil</a></li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                                @csrf
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); this.closest('form').submit();"
+                                   style="color: #f87171;">Logout</a>
+                            </form>
+                        </li>
+                    @else
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}" style="background: var(--accent, #6366f1); color: white; padding: 6px 16px; border-radius: 6px;">Daftar</a></li>
+                    @endauth
+                @endif
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -41,6 +58,21 @@
         <a href="#experience" class="mobile-link">Pengalaman</a>
         <a href="#projects" class="mobile-link">Proyek</a>
         <a href="#contact" class="mobile-link">Kontak</a>
+        @if (Route::has('login'))
+            @auth
+                <a href="{{ url('/dashboard') }}" class="mobile-link">Dashboard</a>
+                <a href="{{ route('profile.edit') }}" class="mobile-link">Profil</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault(); this.closest('form').submit();"
+                       class="mobile-link" style="color: #f87171;">Logout</a>
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="mobile-link">Login</a>
+                <a href="{{ route('register') }}" class="mobile-link" style="background: var(--accent, #6366f1); color: white; padding: 6px 16px; border-radius: 6px; display: inline-block;">Daftar</a>
+            @endauth
+        @endif
     </div>
 
     <!-- Hero Section -->
@@ -455,18 +487,48 @@
                         </a>
                     </div>
                 </div>
-                <form class="contact-form fade-in" id="contactForm" action="https://formspree.io/f/mpqkajjv" method="POST">
-                    <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" name="name" placeholder="Nama Anda" required>
+                <form class="contact-form fade-in" id="contactForm" action="{{ route('contact.store') }}" method="POST">
+                    @csrf
+
+                    @if (session('success'))
+                        <div class="contact-flash contact-flash--success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="contact-flash contact-flash--error" role="alert">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    <div class="form-group @error('name') form-group--error @enderror">
+                        <label for="name">Nama Lengkap <span class="text-required">*</span></label>
+                        <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Nama Anda" required>
+                        @error('name')
+                            <p class="form-field-error">{{ $message }}</p>
+                        @enderror
                     </div>
-                    <div class="form-group">
-                        <label for="email">Alamat Email</label>
-                        <input type="email" id="email" name="email" placeholder="email@contoh.com" required>    
+                    <div class="form-group @error('email') form-group--error @enderror">
+                        <label for="email">Alamat Email <span class="text-required">*</span></label>
+                        <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="email@contoh.com" required>
+                        @error('email')
+                            <p class="form-field-error">{{ $message }}</p>
+                        @enderror
                     </div>
-                    <div class="form-group">
-                        <label for="message">Pesan</label>
-                        <textarea id="message" name="message" placeholder="Tuliskan pesan atau ajakan kolaborasi..." required></textarea>
+                    <div class="form-group @error('subject') form-group--error @enderror">
+                        <label for="subject">Subjek <span class="text-optional">(opsional)</span></label>
+                        <input type="text" id="subject" name="subject" value="{{ old('subject') }}" placeholder="Subjek pesan">
+                        @error('subject')
+                            <p class="form-field-error">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="form-group @error('message') form-group--error @enderror">
+                        <label for="message">Pesan <span class="text-required">*</span></label>
+                        <textarea id="message" name="message" placeholder="Tuliskan pesan atau ajakan kolaborasi..." required>{{ old('message') }}</textarea>
+                        @error('message')
+                            <p class="form-field-error">{{ $message }}</p>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary form-submit">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>

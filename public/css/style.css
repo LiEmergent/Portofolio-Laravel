@@ -2,6 +2,7 @@
    VARIABLES & RESET
    ========================================= */
 :root {
+    --accent: #6366f1;
     --primary: #6366f1;
     --primary-dark: #4f46e5;
     --primary-light: #818cf8;
@@ -1032,6 +1033,47 @@ section {
     width: 100%;
     padding: 1rem;
     font-size: 1rem;
+}
+
+.contact-flash {
+    padding: 0.9rem 1.1rem;
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.contact-flash--success {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.45);
+    color: #6ee7b7;
+}
+
+.contact-flash--error {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.45);
+    color: #fca5a5;
+}
+
+.form-group--error input,
+.form-group--error textarea {
+    border-color: #ef4444;
+}
+
+.form-field-error {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: #fca5a5;
+}
+
+.text-required {
+    color: #f87171;
+}
+
+.text-optional {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.85rem;
 }
 
 /* =========================================
